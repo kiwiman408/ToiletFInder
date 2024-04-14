@@ -3,10 +3,7 @@ package org.example.databases;
 import org.example.entities.User;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //makes new CSV
 public class UserDatabase {
@@ -58,14 +55,34 @@ public class UserDatabase {
         }
     }
 
+//    public void rewriteUsersToCSV(String csvFile) {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile))) {
+//            for (User user : users) {
+//                writer.append(user.getUsername()).append(",").append(user.getPassword()).append("\n");
+//            }
+//            System.out.println("Users rewritten to " + csvFile + " successfully.");
+//        } catch (IOException e) {
+//            throw new RuntimeException("Error rewriting users to CSV", e);
+//        }
+//    }
+
     public void rewriteUsersToCSV(String csvFile) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile))) {
-            for (User user : users) {
-                writer.append(user.getUsername()).append(",").append(user.getPassword()).append("\n");
+        try {
+            File file = new File(csvFile);
+            Scanner scanner = new Scanner(file);
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] data = line.split(",");
+                if (data.length == 2) {
+                    String username = data[0].trim();
+                    String password = data[1].trim();
+                    addUser(username, password);
+                }
             }
-            System.out.println("Users rewritten to " + csvFile + " successfully.");
-        } catch (IOException e) {
-            throw new RuntimeException("Error rewriting users to CSV", e);
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
