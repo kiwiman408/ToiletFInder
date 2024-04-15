@@ -3,6 +3,7 @@ package org.example.panels;
 import javax.swing.*;
 import java.awt.*;
 
+//let's not do this
 public class MapSelectionPanel extends JPanel{
 
     JLabel jabel = new JLabel("SELECT NEW MAP");

@@ -16,8 +16,6 @@ public class PanelManager {
     private MapPanel mapPanel;
     private ReviewPanel reviewPanel;
 
-
-
     public PanelManager(){
         panelStateName = "Something";
 
@@ -31,7 +29,8 @@ public class PanelManager {
 
         window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(true);
+        //lets not
+//        window.setResizable(true);
         window.setTitle("Toilet Finder");
 
         //set true to make panel close
@@ -52,6 +51,7 @@ public class PanelManager {
 //
 //        window.pack();
 
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
     }

@@ -1,39 +1,55 @@
 package org.example.panels.subpanels;
 
+import org.example.panels.PanelManager;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class InfoPanelMiniature extends JPanel{
-    private JLabel toiletName;
-    private JLabel rating;
-    private JLabel occupancy;
-
+    private JLabel toiletStatus;
 
     private JPanel backgoundColorPanel;
 
     //no good solution here i can come up
     private JButton invisibleButtons;
+    private JButton reviewButtonPanel;
+    private JButton nearbyToiletList;
+    private JButton returnToLoginScreen;
 
-    //this will need to be updated continuously
-    public InfoPanelMiniature(){
+    //this will need to have toilet information be updated continuously
+    //will need a toilet name and then search database for said toilet and then update itself if toilet info changes
+    public InfoPanelMiniature(PanelManager panelManager){
+        this.setBackground(Color.darkGray);
 
-        backgoundColorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
+        backgoundColorPanel = new JPanel();
         backgoundColorPanel.setBackground(Color.PINK);
-        backgoundColorPanel.setPreferredSize(new Dimension(200,100));
+        backgoundColorPanel.setPreferredSize(new Dimension(900, 100));
+        add(backgoundColorPanel);
+        backgoundColorPanel.setLayout(new BoxLayout(backgoundColorPanel, BoxLayout.Y_AXIS));
+
+        reviewButtonPanel = new JButton("See Reviews");
+        nearbyToiletList = new JButton("See List of Nearby Toilets");
+        returnToLoginScreen = new JButton("Return to Login Screen");
+
         this.add(backgoundColorPanel);
 
-        toiletName = new JLabel("Restroom Name: ");
-        rating = new JLabel("Average Rating: ");
-        occupancy = new JLabel("Occupancy level:");
-        rating = new JLabel("Rating: ");
+        reviewButtonPanel.setPreferredSize(new Dimension(200,40));
+        nearbyToiletList.setPreferredSize(new Dimension(200,40));
+        returnToLoginScreen.setPreferredSize(new Dimension(200,40));
 
-        backgoundColorPanel.add(toiletName);
-        backgoundColorPanel.add(rating);
-        backgoundColorPanel.add(occupancy);
-        backgoundColorPanel.add(rating);
+        this.add(reviewButtonPanel);
+        this.add(nearbyToiletList);
+        this.add(returnToLoginScreen);
+
+
+        int something = 2;
+
+        toiletStatus = new JLabel("<html>*Toilet Name: "+something+ "<br/> *Rating: ."+something+"<br/>*Occupied Status: "+something);
+
+        Font font = toiletStatus.getFont();
+        toiletStatus.setFont(font.deriveFont(15f));
+
+        backgoundColorPanel.add(toiletStatus);
+        toiletStatus.setBounds(0,0,0,0 );
     }
-
-
-
 }
