@@ -57,10 +57,9 @@ public class InfoPanelMiniature extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 //do all your things here
                 System.out.println("Review Button clicked");
-//                clearPanelOff();
                 panelManager.switchPanelMethod(panelManager, "review");
                 panelManager.getMapPanel().setVisible(false);
-//                messageLabel.setText("User not found");
+                panelManager.getReviewPanel().setVisible(true);
             }
         });
 
@@ -72,6 +71,7 @@ public class InfoPanelMiniature extends JPanel{
 
         returnToLoginScreen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
 
             }
         });

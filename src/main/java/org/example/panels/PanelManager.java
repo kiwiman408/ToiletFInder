@@ -123,5 +123,4 @@ public class PanelManager {
     public void setReviewPanel(ReviewPanel reviewPanel) {
         this.reviewPanel = reviewPanel;
     }
-
 }
