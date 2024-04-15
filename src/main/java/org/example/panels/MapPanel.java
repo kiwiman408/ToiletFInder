@@ -10,16 +10,15 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MapPanel extends JPanel{
 
     JPanel infoPanel;
     JPanel mapGraphicPanel;
 
-    JFXPanel jfxPanel = new JFXPanel();
-
     //these imageicons are for tests
-    ImageIcon testIcons;
+
 
     private BufferedImage image;
 
@@ -30,7 +29,16 @@ public class MapPanel extends JPanel{
     private JButton changeLocation;
 
 
+    ImageIcon icon = new ImageIcon("Assets/images/pixil-frame-0.png"); // Replace "icon.png" with the path to your icon image file
+
+    // Create a list array to hold the icons
+//    List<> iconList = new ArrayList<>();
+
+    // Add 50 icons to the list array using a for loop
     public MapPanel(PanelManager panelManager){
+//        List<JLabel> iconList = new ArrayList<>();
+//
+//        JLabel mainLabel = new JLabel(mainImageIcon);
 
         ////////////////////////////////////////////////////////////////////
         //Map Image Stuff

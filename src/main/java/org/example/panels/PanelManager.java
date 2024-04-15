@@ -29,8 +29,10 @@ public class PanelManager {
 
         window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //lets not
+
+        //lets not do this
 //        window.setResizable(true);
+
         window.setTitle("Toilet Finder");
 
         //set true to make panel close
