@@ -17,7 +17,7 @@ public class PanelManager {
     private ReviewPanel reviewPanel;
 
     public PanelManager(){
-        panelStateName = "Something";
+
 
         //may have to make a database manager or else deal with this mess
         UserDatabase userdatabase = new UserDatabase();
@@ -54,6 +54,8 @@ public class PanelManager {
         window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+
+        panelStateName = "login";
     }
 
     //never worked with switch statements funnily enough
@@ -61,26 +63,22 @@ public class PanelManager {
     //struggled a bit on this one but since the constructor doesn't up date itself continously i decided on making it like this
     //a bit messy on the parameter passing but it works on the instance if needed just don't forget to bring the panel manager
     //if someone can learn how to do transitions properly just mention it
+
     public void switchPanelMethod(PanelManager panelManager, String panelStateName){
         switch (panelStateName) {
             case "login":
-                panelManager.getWindow().getContentPane().removeAll();
                 panelManager.getWindow().getContentPane().add("Center", mapPanel);
                 break;
             case "map":
-                panelManager.getWindow().getContentPane().removeAll();
                 panelManager.getWindow().getContentPane().add("Center", mapPanel);
                 break;
             case "review":
-                panelManager.getWindow().getContentPane().removeAll();
                 panelManager.getWindow().getContentPane().add("Center", reviewPanel);
                 break;
             case "map select":
-                panelManager.getWindow().getContentPane().removeAll();
                 panelManager.getWindow().getContentPane().add("Center", reviewPanel);
                 break;
             default:
-                panelManager.getWindow().getContentPane().removeAll();
                 panelManager.getWindow().getContentPane().add("Center", loginPanel);
                 break;
         }
@@ -101,4 +99,29 @@ public class PanelManager {
     public void setPanelStateName(String panelStateName) {
         this.panelStateName = panelStateName;
     }
+
+    public LoginPanel getLoginPanel() {
+        return loginPanel;
+    }
+
+    public void setLoginPanel(LoginPanel loginPanel) {
+        this.loginPanel = loginPanel;
+    }
+
+    public MapPanel getMapPanel() {
+        return mapPanel;
+    }
+
+    public void setMapPanel(MapPanel mapPanel) {
+        this.mapPanel = mapPanel;
+    }
+
+    public ReviewPanel getReviewPanel() {
+        return reviewPanel;
+    }
+
+    public void setReviewPanel(ReviewPanel reviewPanel) {
+        this.reviewPanel = reviewPanel;
+    }
+
 }

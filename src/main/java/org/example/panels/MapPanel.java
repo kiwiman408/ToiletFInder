@@ -54,16 +54,7 @@ public class MapPanel extends JPanel{
         changeLocation = new JButton("Switch Map");
         infoPanelMiniature = new InfoPanelMiniature(panelManager);
 
-//        add(image);
-//        add(extendInformationPanel);
-//        add(changeLocation);
-//        add(infoPanelMiniature );
-
         add(infoPanelMiniature, BorderLayout.SOUTH);
-
-//        this.add(getReviewPanel);
-//        this.add(extendInformationPanel);
-//        this.add(changeLocation);
 
         this.setBackground(Color.LIGHT_GRAY);
         this.setDoubleBuffered(true);

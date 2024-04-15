@@ -10,20 +10,15 @@ public class UserDatabase {
     //Why list array? It's easier for me to deal with
     private List<User> users; // List to hold users
 
-
-    // Constructor
     public UserDatabase() {
         users = new ArrayList<>();
     }
 
-    // Method to add a user
+
     public void addUser(String username, String password){
-        //add user to array list
         users.add(new User(username, password));
-        //rewrite
     }
 
-    // Method to read users from a CSV file and toss them into list array
     public void readUsersFromCSV(String csvFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             String line;
@@ -54,17 +49,6 @@ public class UserDatabase {
             e.printStackTrace();
         }
     }
-
-//    public void rewriteUsersToCSV(String csvFile) {
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile))) {
-//            for (User user : users) {
-//                writer.append(user.getUsername()).append(",").append(user.getPassword()).append("\n");
-//            }
-//            System.out.println("Users rewritten to " + csvFile + " successfully.");
-//        } catch (IOException e) {
-//            throw new RuntimeException("Error rewriting users to CSV", e);
-//        }
-//    }
 
     public void rewriteUsersToCSV(String csvFile) {
         try {
@@ -113,4 +97,6 @@ public class UserDatabase {
             System.out.println(user.getUsername() + "," + user.getPassword());
         }
     }
+
+
 }

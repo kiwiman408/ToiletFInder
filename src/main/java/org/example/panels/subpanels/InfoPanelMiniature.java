@@ -4,6 +4,8 @@ import org.example.panels.PanelManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InfoPanelMiniature extends JPanel{
     private JLabel toiletStatus;
@@ -41,7 +43,6 @@ public class InfoPanelMiniature extends JPanel{
         this.add(nearbyToiletList);
         this.add(returnToLoginScreen);
 
-
         int something = 2;
 
         toiletStatus = new JLabel("<html>*Toilet Name: "+something+ "<br/> *Rating: ."+something+"<br/>*Occupied Status: "+something);
@@ -51,5 +52,28 @@ public class InfoPanelMiniature extends JPanel{
 
         backgoundColorPanel.add(toiletStatus);
         toiletStatus.setBounds(0,0,0,0 );
+
+        reviewButtonPanel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //do all your things here
+                System.out.println("Review Button clicked");
+//                clearPanelOff();
+                panelManager.switchPanelMethod(panelManager, "review");
+                panelManager.getMapPanel().setVisible(false);
+//                messageLabel.setText("User not found");
+            }
+        });
+
+        nearbyToiletList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        returnToLoginScreen.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 }
